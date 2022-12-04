@@ -40,10 +40,7 @@ const controlSearch = async () => {
     clearLoader();
 
     // render countries
-    countriesView.renderCountries(
-      state.countries.randomCountriesList,
-      state.countries.countriesInfo
-    );
+    countriesView.renderCountries(state.countries.formattedCountry);
   } catch (error) {
     console.error(error);
     countriesView.clearCountry();

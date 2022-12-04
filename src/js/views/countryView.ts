@@ -1,28 +1,41 @@
 // import Base from "./base";
-import { ICountry, ICountryInfo } from '../../types/main';
 import { elements } from './base';
 
 export const clearCountry = () => {
   elements.resultsList.innerHTML = '';
 };
 
-export const renderCountries = (
-  countries: ICountry[],
-  specific: ICountryInfo[]
-): void => {
+export const renderCountries = (countries: any): void => {
+  console.log(countries);
   const markup = countries
     .map(
-      (country, index) => `
- <li>
-            <p><strong>ID: </strong>${country.id}</p>
-            <p><strong>City: </strong>${country.city}</p>
-            <p><strong>Street name: </strong>${country.street_name}</p>
-            <p><strong>Street address: </strong>${country.street_address}</p>
-            <p><strong>Community: </strong>${country.community}</p>
-            <p><strong>State: </strong>${country.state}</p>
-            <p><strong>Country: </strong>${country.country}</p>
-            <p><strong>Country code: </strong>${country.country_code}</p>
-            ${renderSpecific(specific, index)}
+      country => `
+          <li>
+            <p><strong>ID: </strong>${country.main.id}</p>
+            <p><strong>City: </strong>${country.main.city}</p>
+            <p><strong>Street name: </strong>${country.main.street_name}</p>
+            <p><strong>Street address: </strong>${
+              country.main.street_address
+            }</p>
+            <p><strong>Community: </strong>${country.main.community}</p>
+            <p><strong>State: </strong>${country.main.state}</p>
+            <p><strong>Country.main: </strong>${country.main.country.main}</p>
+            <p><strong>Country.main code: </strong>${
+              country.main.country_code
+            }</p>
+          <div class="specific">
+          ${
+            Array.isArray(country.specific)
+              ? `            <p><strong>Capital: </strong>${
+                  country.specific[0]
+                }</p>
+            <p><strong>Population: </strong>${country.specific[1]}</p>
+            <p><strong>Language: </strong>${Object.values(
+              country.specific[2]
+            )}</p>`
+              : `<p><strong>${country.specific}</strong></p>`
+          }
+        </div>
           </li>
   `
     )
