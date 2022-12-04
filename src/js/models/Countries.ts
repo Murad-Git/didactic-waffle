@@ -1,12 +1,12 @@
 import axios from 'axios';
-import { ICountry, ICountryInfo } from '../../types/main';
+import { ICountry } from '../../types/main';
 import { countries_url, country_url } from '../config';
 
 export default class Countries {
   number: number;
   randomCountriesList: ICountry;
   countriesList: string[];
-  countriesInfo: ICountryInfo | string;
+  countriesInfo: any[];
   constructor(number: number) {
     this.number = number;
   }
@@ -15,7 +15,7 @@ export default class Countries {
     try {
       const respond = await axios.get(`${countries_url}?size=${this.number}`);
       this.randomCountriesList = respond.data;
-      this.countriesList = respond.data.map(({ country }: string) => country);
+      this.countriesList = respond.data.map(({ country }: any) => country);
       await this.getCountryInfo();
     } catch (error) {
       console.error(error);

@@ -5,7 +5,22 @@
 
     & li {
         border-bottom: 1px solid #d9d9d9;
-        padding-bottom: 1rem;
+        padding: 2rem 5rem;
         font-size: 1.5rem;
+    }
+}
+
+.countries {
+    grid-area: countries;
+    background-color: rgba($color-grad-1, $alpha: .2);
+
+    & li {
+        &:hover {
+            background-color: rgba($color-grad-1, $alpha: .25);
+        }
+
+        .specific {
+            background-color: rgba($color-grad-1, $alpha: .22);
+        }
     }
 }

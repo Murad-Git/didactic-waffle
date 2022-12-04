@@ -1,11 +1,15 @@
 // import Base from "./base";
+import { ICountry, ICountryInfo } from '../../types/main';
 import { elements } from './base';
 
 export const clearCountry = () => {
   elements.resultsList.innerHTML = '';
 };
 
-export const renderCountries = (countries, specific) => {
+export const renderCountries = (
+  countries: ICountry[],
+  specific: ICountryInfo[]
+): void => {
   const markup = countries
     .map(
       (country, index) => `
@@ -26,15 +30,14 @@ export const renderCountries = (countries, specific) => {
   elements.resultsList.insertAdjacentHTML('afterbegin', markup);
 };
 
-const renderSpecific = (data, index) => {
-  console.log(data[index]);
+const renderSpecific = (data: any, index: number) => {
   if (Array.isArray(data[index]))
     return `
-    <div class="specific">
-            <p><strong>Capital: </strong>${data[index][0]}</p>
-            <p><strong>Population: </strong>${data[index][1]}</p>
-            <p><strong>Language: </strong>${Object.values(data[index][2])}</p>
-            </div>
+        <div class="specific">
+          <p><strong>Capital: </strong>${data[index][0]}</p>
+          <p><strong>Population: </strong>${data[index][1]}</p>
+          <p><strong>Language: </strong>${Object.values(data[index][2])}</p>
+        </div>
   `;
   else return `<p><strong>${data[index]}</strong></p>`;
 };

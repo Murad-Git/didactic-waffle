@@ -62,10 +62,10 @@ body {
 
     display: grid;
     grid-template-rows: 10rem minmax(100rem, auto);
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     grid-template-areas:
-        'head head'
-        'countries country';
+        'head'
+        'countries';
 
     @media only screen and (max-width: $bp-large) {
         max-width: 100%;

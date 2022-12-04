@@ -83,6 +83,34 @@
     }
 }
 
+.loader {
+    margin: 5rem auto;
+    text-align: center;
+
+    object {
+        height: 5.5rem;
+        width: 5.5rem;
+        transform-origin: 44% 50%;
+        animation: rotate 1.5s infinite linear;
+    }
+}
+
+.error {
+    margin: 5rem auto;
+    text-align: center;
+
+    .error_img {
+        height: 5.5rem;
+        width: 5.5rem;
+    }
+
+    p {
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+}
+
+
 @keyframes rotate {
     0% {
         transform: rotate(0);
