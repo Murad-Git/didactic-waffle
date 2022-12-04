@@ -1,0 +1,29 @@
+.countries {
+    grid-area: countries;
+    background-color: rgba($color-grad-1, $alpha: .2);
+
+    & li {
+        &:hover {
+            background-color: rgba($color-grad-1, $alpha: .25);
+        }
+
+        .specific {
+            background-color: rgba($color-grad-1, $alpha: .22);
+        }
+    }
+}
+
+.country {
+    grid-area: country;
+    background-color: rgba($color-grad-2, $alpha: .2);
+
+    & li {
+        &:hover {
+            background-color: rgba($color-grad-2, $alpha: .25)
+        }
+
+        .specific {
+            background-color: rgba($color-grad-2, $alpha: .22);
+        }
+    }
+}
